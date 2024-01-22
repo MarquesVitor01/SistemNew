@@ -1,0 +1,182 @@
+.background {
+    border-top: 2px solid rgb(100, 29, 29);
+    border-bottom: 2px solid rgb(100, 29, 29);
+        background: linear-gradient(to right, #366894, #b44248);   
+        padding: 20px; 
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+      position: relative; 
+      overflow: hidden; 
+}
+
+body {
+  overflow-x: hidden;
+}
+.titulo-2 {
+  background-color: #fff;
+  width: 850px;
+  margin-top: 15px;
+  border: 5px solid black;
+}
+
+.salvar {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  margin-bottom: 5px;
+}
+.btn-acao {
+  margin: 20px 20px 0px 20px;
+  min-width: 100px;
+}
+
+.btn-cli {
+  margin-left: 5px;
+}
+
+.contrato{
+  background-color: #F7F7F7!important;
+}
+.logo-street {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.logo-street img{
+  height: 100px!important;
+}
+
+
+.th,
+td {
+  font-size: small;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.th {
+  
+  background-color: #f2f2f2;
+}
+
+.caixa {
+  border: 1px solid black;
+  font-size: small;
+
+}
+
+.linha1 {
+  height: 25px;
+  background-color: rgb(87, 87, 207);
+  font-size: 15px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.linha1 h3 {
+  font-size: 15px;
+}
+
+.assinante {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.assinante h3 {
+  font-size: 15px;
+}
+
+.escrever {
+  width: 100%;
+}
+
+.escrever hr {
+  color: black;
+  height: 1px;
+}
+
+.linha2 {
+  height: 25px;
+  background-color: rgb(87, 87, 207);
+  font-size: 15px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.linha2 h3 {
+  font-size: 15px;
+}
+
+.caixa2 {
+  font-size: small;
+  border: solid 1px black;
+  padding: 5px;
+}
+
+.caixa2 input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.atualizacao {
+  padding-top: 7px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.condicoes{
+  border: 1px solid black;
+}
+.condicoes h3{
+  font-size: 11px;
+  text-align: center;
+}
+
+.regras{
+  margin-top: 3px;
+  background-color: rgb(87, 87, 207);
+  height:20px ;
+}
+
+.regras h2{
+  font-size: 18px;
+  text-align: center;
+}
+
+.texto p{
+  font-size: x-small;
+}
+
+.escrever2 {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.escrever2 hr {
+  color: black;
+  height: 1px;
+}
+
+.escrever2 h3{
+  text-align: center;
+  font-size: 15px;
+}
+.linha3 {
+  height: 25px;
+  background-color: rgb(87, 87, 207);
+  font-size: 15px;
+  padding-top: 5px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.linha3 h3 {
+  font-size: 15px;
+}
+
+.inf h3{
+  font-size: small;
+  text-align: center;
+}
+
