@@ -9,6 +9,7 @@ function Navbar4() {
     const auth = getAuth();
     const navigate = useNavigate();
     const [isAdmUser, setIsAdmUser] = useState(false);
+    const [exclusiveUser, setExclusiveUser] = useState(false)
     const Logout = () => {
         setLogado(false);
         localStorage.removeItem("logado");
@@ -18,7 +19,8 @@ function Navbar4() {
             if (user) {
                 console.log('ID do usuário:', user.uid);
                 setLogado(true);
-                setIsAdmUser((user.uid === 'tRcBpcXnM7Od7gXDHD5p8MSYrhl2') ||( user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2'));
+                setExclusiveUser(user.uid === 'S24vigWuDcT81qAOfAP43AiKU812')
+                setIsAdmUser((user.uid === 'tRcBpcXnM7Od7gXDHD5p8MSYrhl2') || (user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2'));
             } else {
                 console.log('Nenhum usuário autenticado.');
                 setLogado(false);
@@ -37,7 +39,7 @@ function Navbar4() {
             <div className="container-fluid">
                 <a className="navbar-brand" href="/app/marketingmapsempresas">
                     <img
-                        src="../../../img/mps.jpg"
+                        src="../../../img/logo-atual-street.jpeg"
                         width="85"
                         height="80"
                         alt=""
@@ -65,6 +67,16 @@ function Navbar4() {
                             </Link>
                         </li>
                         <li className="nav-item bar"> | </li>
+                        {exclusiveUser && (
+                            <>
+                                <li className='nav-item'>
+                                    <Link to="/app/home" className="nav-link text-primary" aria-current="page">
+                                        <b><i class="fa-solid fa-phone"></i> Comercial</b>
+                                    </Link>
+                                </li>
+                                <li className="nav-item bar"> | </li>
+                            </>
+                        )}
                         {isAdmUser && (
                             <>
                                 <li className="nav-item ">
@@ -82,7 +94,7 @@ function Navbar4() {
                                 className="nav-link text-danger"
                                 aria-current="page"
                             >
-                                <b>Sair</b>
+                                <b><i className="fa-solid fa-right-from-bracket"></i> Sair</b>
                             </Link>
                         </li>
                     </ul>

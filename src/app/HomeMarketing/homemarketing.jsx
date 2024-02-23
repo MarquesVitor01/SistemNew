@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Navbar4 from "../Componentes/Navbar/navbar4";
+import { Link, Navigate } from 'react-router-dom';
 import ListaClienteMarketing from "../Componentes/ListaCliente/listaclientemarketing";
 import '../HomeMarketing/homemarketing.css'
 import { getAuth } from 'firebase/auth';
-import { collection, getFirestore, getDocs, query, where } from 'firebase/firestore';
+import SweetAlert from "react-bootstrap-sweetalert";
+import { collection, getFirestore, getDocs, query, where, deleteDoc, doc } from 'firebase/firestore';
 import 'firebase/firestore';
 function HomeMarketing() {
+  const [excluido, setExcluido] = useState('');
+  const [confirmacao, setConfirmacao] = useState(false);
+  const [confirmacaoId, setConfirmacaoId] = useState('');
     const [clientes, setClientes] = useState([]);
     const [busca, setBusca] = useState('');
     const [texto, setTexto] = useState('');
@@ -37,7 +42,8 @@ function HomeMarketing() {
                 uf: doc.data().uf,
                 fone: doc.data().fone,
                 valor: doc.data().valor,
-                data: doc.data().data
+                data: doc.data().data,
+                razao: doc.data().razao
               });
             }
           });
@@ -53,7 +59,7 @@ function HomeMarketing() {
       if (user) {
         fetchData();
       }
-    }, [busca, showConcluidos, user]);
+    }, [busca, showConcluidos, user, excluido]);
     useEffect(() => {
         const storedClientes = localStorage.getItem('clientes');
 
@@ -66,6 +72,40 @@ function HomeMarketing() {
     const handleShowConcluidos = () => {
         setShowConcluidos(!showConcluidos);
     };
+    const deleteUser = (id) => {
+      const db = getFirestore();
+      const clienteDocRef = doc(db, 'clientes', id);
+      if ((user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2') || ( user.uid === 'S24vigWuDcT81qAOfAP43AiKU812')) {
+          deleteDoc(clienteDocRef)
+              .then(() => {
+                  console.log('Documento excluído com sucesso:', id);
+                  setExcluido(id);
+                  setConfirmacao(false);
+              })
+              .catch((erro) => {
+                  console.error('Erro ao excluir documento:', erro);
+                  setError(erro);
+              });
+      } else {
+          console.error('Usuário não tem permissão para excluir clientes.');
+          setError('Você não tem permissão para excluir clientes.');
+          alert('Você não tem permissão para excluir clientes.')
+          setConfirmacao(false);
+      }
+  };
+  useEffect(() => {
+      if (error) {
+          const timeout = setTimeout(() => {
+              setError(null);
+              <Navigate to='/app/home'></Navigate>
+          }, 3000);
+          return () => clearTimeout(timeout);
+      }
+  }, [error]);
+  const confirmDeleteUser = (id) => {
+      setConfirmacaoId(id);
+      setConfirmacao(true);
+  };
     return (
         <div>
             <Navbar4 />
@@ -87,7 +127,7 @@ function HomeMarketing() {
                                 <input
                                     onChange={(e) => setTexto(e.target.value)}
                                     type="text"
-                                    className="form-control"
+                                    className="form-control barra"
                                     placeholder="Pesquisar por nome"
                                     aria-describedby="button-addon2"
                                 />
@@ -102,7 +142,23 @@ function HomeMarketing() {
                             </div>
                         </div>
                     </div>
-                    <ListaClienteMarketing arrayClientes={clientes} />
+                    <ListaClienteMarketing arrayClientes={clientes} clickDelete={confirmDeleteUser} />
+                    {confirmacao ?
+                        <SweetAlert
+                            warning
+                            showCancel
+                            showCloseButton
+                            confirmBtnText="Sim"
+                            confirmBtnBsStyle="danger"
+                            cancelBtnText="Não"
+                            cancelBtnBsStyle="primary"
+                            title="Exclusão"
+                            onConfirm={() => deleteUser(confirmacaoId)}
+                            onCancel={() => setConfirmacao(false)}
+                            reverseButtons={true}
+                        >
+                            Deseja excluir o cliente selecionado?
+                        </SweetAlert> : null}
                 </div>
             </div>
         </div>

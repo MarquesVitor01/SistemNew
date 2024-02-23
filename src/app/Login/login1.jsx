@@ -20,13 +20,14 @@ function Login() {
                 setLogado(true);
                 setSucesso('S');
                 let redirectPath = '/app/home';
-                if (email === 'marketing01@grupomaps.com.br') {
-                    redirectPath = '/app/marketingmapsempresas';
-                } else if (email === 'financeiro01@grupomaps.com.br') {
-                    redirectPath = '/app/financeiromapsempresas';
-                } else if (email === 'cobranca01@grupomaps.com.br') {
-                    redirectPath = '/app/cobrancamapsempresas';
-                } 
+                    if(email === 'talita.silva@goo360.online' || email === 'felipe@goo360.online'){
+                    } else if (email === 'karoline.alves@grupomapscartaodigital.com.br' || email === 'eryck.vinicius@grupomapscartaodigital.com.br' || email === 'gabriel.pinheiro@grupomapscartaodigital.com.br' || email === 'andressa.anastacia@grupomapscartaodigital.com.br' ) {
+                        redirectPath = '/app/marketingmapsempresas';
+                    } else if (email === 'jhonatan.ramos@goo360.online' || email === 'ana.clara@goo360.online' || email === 'karolia.salgado@goo360.online' || email === 'adriana.lima@goo360.online' || email === 'allan.bruno@goo360.online' || email === 'bruno.santo@goo360.online' ) {
+                        redirectPath = '/app/cobrancagoo';
+                    } else if(email === 'jonas.alexandre@goo360.online' || email === 'karoline.alves@goo360.com.br' || email === 'eryck.vinicius@goo360.com.br' || email === 'gabriel.pinheiro@goo360.com.br' || email === 'andressa.anastacia@goo360.com.br') {
+                        redirectPath = '/app/marketinggoo';
+                    }
                 setRedirectToHome(true); 
                 setRedirectPath(redirectPath);
             })

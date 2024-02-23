@@ -25,7 +25,8 @@ function ListaArquivosCliente({ clientId, filesInfo, handleExcluirArquivo }) {
     }
   };
 
-  return <div>{renderFiles()}</div>;
+  // Invoke the renderFiles function to return the JSX
+  return renderFiles();
 }
 
 export default ListaArquivosCliente;

@@ -26,7 +26,7 @@ function Navbar3() {
                     uf: doc.data().uf,
                     fone: doc.data().fone,
                     valor: doc.data().valor,
-                    data: doc.data().data
+                    data: doc.data().data,
                 });
             });
             setClientes(listaCli);
@@ -65,7 +65,7 @@ function Navbar3() {
     return <nav className="navbar navbar-expand-lg navbar-light navbar-3">
         <div className="container-fluid">
             <a className="navbar-brand" href="/app/home">
-                <img src="../../../img/logo-street.jpg" width="85" height="80" alt="" />
+                <img src="../../../img/logo-atual-street.jpeg" width="85" height="80" alt="" />
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
@@ -78,7 +78,7 @@ function Navbar3() {
                     </li>
                     <li className="nav-item bar"> | </li>
                     <li className="nav-item">
-                        <Link to="/app" onClick={Logout} className="nav-link text-danger" aria-current="page"><b>Sair</b></Link>
+                        <Link to="/app" onClick={Logout} className="nav-link text-danger" aria-current="page"> <b><i className="fa-solid fa-right-from-bracket"></i> Sair</b></Link>
                     </li>
                 </ul>
             </div>

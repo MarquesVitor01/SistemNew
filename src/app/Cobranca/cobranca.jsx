@@ -20,18 +20,32 @@ function Cobranca() {
         const clientesRef = collection(db, 'clientes');
         const q = query(clientesRef);
         const snapshot = await getDocs(q);
-        const listaCli = snapshot.docs.map(doc => ({
-          id: doc.id,
-          cpf: doc.data().cpf,
-          nome: doc.data().nome,
-          email: doc.data().email,
-          uf: doc.data().uf,
-          fone: doc.data().fone,
-          valor: doc.data().valor,
-          venc2: doc.data().venc2,
-          pago: doc.data().pago || false,
-        }));
-        const filteredClientes = listaCli.filter(cliente => !cliente.pago);
+
+        const listaCli = [];
+        snapshot.forEach((doc) => {
+          if (
+            doc.data().nome.indexOf(busca) >= 0 ||
+            doc.data().email.indexOf(busca) >= 0 ||
+            doc.data().cpf.indexOf(busca) >= 0 ||
+            doc.data().operador.indexOf(busca) >= 0
+          ) {
+            listaCli.push({
+              id: doc.id,
+              cpf: doc.data().cpf,
+              nome: doc.data().nome,
+              email: doc.data().email,
+              uf: doc.data().uf,
+              fone: doc.data().fone,
+              valor: doc.data().valor,
+              data: doc.data().data,
+              operador: doc.data().operador,
+              razao: doc.data().razao,
+              cobrador: doc.data().cobrador,
+            });
+          }
+        });
+
+        const filteredClientes = listaCli.filter((cliente) => !cliente.pago);
         setClientes(filteredClientes);
         setLoading(false);
         localStorage.setItem('clientes', JSON.stringify(filteredClientes));
@@ -40,8 +54,9 @@ function Cobranca() {
         setError(error);
       }
     };
+
     fetchData();
-  }, []);
+  }, [busca, user]);
   const handleExibirPagos = () => {
     setExibirPagos(!exibirPagos);
   };

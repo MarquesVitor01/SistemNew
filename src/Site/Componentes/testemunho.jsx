@@ -11,13 +11,13 @@ function Testemunho(){
   </ol>
   <div className="carousel-inner testemunho">
     <div className="carousel-item active box">
-      <img className="d-block w-100 " src="https://www.limely.co.uk/wp-content/uploads/google-streetview-camera.jpg" alt="Primeiro Slide"/>
+      <img className="d-block w-100 " src="../../img/360-photos.png" alt="Primeiro Slide"/>
     </div>
     <div className="carousel-item box">
-      <img className="d-block w-100" src="http://4.bp.blogspot.com/-u9p2Yo4ZKL4/WN1Wl-ah2qI/AAAAAAAACt4/OyEfGFfl7jkIn5d1IaTprZFqgD18cLy-ACK4B/s1600/360-photos.PNG" alt="Segundo Slide"/>
+      <img className="d-block w-100" src="../../img/google-streetview-camera.jpg" alt="Segundo Slide"/>
     </div>
     <div className="carousel-item box">
-      <img className="d-block w-100" src="https://www.allinallnews.com/wp-content/uploads/2015/05/Google-Maps.png" alt="Terceiro Slide"/>
+      <img className="d-block w-100" src="../../img/Google-Maps.png" alt="Terceiro Slide"/>
     </div>
   </div>
   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

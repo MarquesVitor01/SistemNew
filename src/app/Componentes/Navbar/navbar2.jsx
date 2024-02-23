@@ -36,7 +36,7 @@ function Navbar2() {
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="/app/financeiromapsempresas">
-          <img src="../../../img/logo-street.jpg" width="85" height="80" alt="" />
+          <img src="../../../img/logo-atual-street.jpeg" width="85" height="80" alt="" />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
@@ -61,7 +61,7 @@ function Navbar2() {
               </>
             )}
             <li className="nav-item">
-              <Link to="/app" onClick={Logout} className="nav-link text-danger" aria-current="page"><b>Sair</b></Link>
+              <Link to="/app" onClick={Logout} className="nav-link text-danger" aria-current="page"> <b><i className="fa-solid fa-right-from-bracket"></i> Sair</b></Link>
             </li>
           </ul>
         </div>

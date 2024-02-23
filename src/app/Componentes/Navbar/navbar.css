@@ -17,7 +17,7 @@
   margin-right: 20px;
 }
 .navbar {
-  background-color: #F7F7F7; 
+  background-color: #ffff; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .navbar-brand img {
@@ -59,3 +59,7 @@
 .text-danger {
   color: #dc3545; 
 }
+
+body{
+  font-size: small;
+} 

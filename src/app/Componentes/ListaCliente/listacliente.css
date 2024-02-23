@@ -11,14 +11,38 @@
 .col-acao{
   width: 80px;
 }
+.icon-u{
+  font-size: 20px;
+}
+.icon-pho{
+  font-size: 20px;
+}
+
+.col-acao{
+  font-size: 30px;
+}
+.icon-info{
+  font-size: 20px;
+}
+.icon-calendar{
+  font-size: 20px;
+}
+.icon-clip{
+  font-size: 20px;
+}
 .table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 .table th {
-  text-align: left;
   padding: 10px;
   font-weight: bold;
 }
-
+.date{
+  border-radius: 40px;
+}
+.info-extra{
+  display: flex;
+  flex-direction: column;
+}

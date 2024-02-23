@@ -14,34 +14,33 @@ const ScriptModal = ({ onClose }) => {
             <div className="script-modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <br />
-                <p>Olá, Bom dia. O meu nome é _____, faço parte do Grupo Maps. O motivo do meu contato é
-                    referente a inclusão e a divulgação dos seus serviços dentro da plataforma de busca do google
-                    maps. Eu só vou precisar validar com o senhor algumas informações que vão ficar disponiveis
-                    pros seus clientes, tudo bem?
-                    O nome fantasia é esse mesmo___?
-                    o endereço cadastrado seria____?
-                    o numero pro cliente entrar em contato com o senhor é esse mesmo que estamos nos falando
-                    ou teria outro? Ele seria whatsapp?
-                    Qua seria o horário de funcionamento? De segunda a sexta?
-                    o email é___
-                    Certo, vou estar falando agora o seu cnpj e a razao social e o senhor me confirma se está
-                    correto.
-                    Perfeito. O marketing vai entrar em contato com o senhor atraves do whatsapp e por lá é
-                    importante o senhor estar encaminhando até 30 fotos e 5 vídeos do seu serviço mensalmente
-                    pra estarmos atualizando a sua página. Caso o senhor tenha redes sociais, como facebook ou
-                    instagram, o senhor pode estar nos encaminhando o link para incluirmos na sua página. Além
-                    disso, também conseguimos criar um cartão interativo digital e uma logotipo para a sua
-                    empresa. Teria também uma divulgação, onde o senhor consegue escolher 5 bairros e
-                    municipios mais próximos para a divulgação da sua página. O senhor tem alguma dúvida até
-                    aqui?
-                    Referente a todo esse processo de criação, atualização e divulgação da sua página, gera um
-                    investimento no valor de 39,90 mensalmente, válido por 1 ano, com a data de vencimento
-                    somente para o dia ____
-                    Lembrando que esse investimento é realizado somente após o senhor verificar todas as
-                    atualizações, ou seja, primeiro o senhor vera todos os serviços prestados e só depois irá
-                    realizar o investimento.
-                    Como a empresa do senhor é uma empresa privada, vamos encaminhar no seu whatsapp um
-                    termo de autorização onde o senhor vai estar autorizando os nossos serviços.</p>
+                <p>Olá bom dia
+                    Meu nome é _____, falou da central de telefonia . <br />
+                    Gostaria de falar com gerente ou proprietário do estabelecimento. <br />
+                    Estou entrando em contato para fazer a atualização da página ativa da unidade nas plataforma do Google Maps. 
+                    A empresa ainda está localizada no endereço ________?
+                    Número para contato é apenas esse fixo ou teria algum Whatszap comercial?
+                    Horário de funcionamento seria qual?
+                    Perfeito, a atualização foi feita com sucesso e não gera ou acarretará nenhum tipo de custos ou ônus adicionais nas contas da linha telefônica da unidade. Por se tratar apenas de atualização básica.
+                    Informa por gentileza, um email de fácil acesso para que eu possa te encaminhar o numero de protocolo e identificação da unidade para futuras alterações?
+                    Eu vou encaminha o link da atualização através do watszap junto ao termo de autorização.
+                    O Sr. vai acessar o link, tirar uma self simples e dar um visto de conferencia apenas para confirmar que entramos em contato e foi feita a atualização, ok?
+                    Dentro de 5 a 10 minutos, minha central de qualidade entra em contato para confirmar o recebimento do protocolo e finalizar o atendimento.
+                    Muito Obrigado central agradece.
+                    ---------------------------------
+                    Bom dia
+                    Me chamo _______, falo do setor de qualidade da central de telefonia.
+                    Tô entrando em contato e gostaria de falar com ______ (nome de quem vc agênciou na primeira ligação)
+                    Tô entrando em contato para finalizar o atendimento referente à atualizacao nas plataformas do google maps
+                    O senhor conseguiu receber o numero de identificação? Foi encaminhado através do WhatsApp
+                    Vou pedir para o Sr. salvar o contato para futuras alterações. <br />
+                    O link está em azul ?
+                    Acessa o link, vai pedir pro Sr. confirmar o email e o endereço. Está correto?
+                    Clica em continuar e permitir acesso vai pedir uma self simples, e em seguida clique em continuar, vai aparecer uma tela em branca onde o Sr. vai dar um visto ou escrever seu nome e em seguida só finalizar.
+                    Quando der concluído com sucesso o sr me avisa.
+                    Agora eu vou pedir para o Sr. voltar para a nossa conversa no WhatsApp vai chegar uma enquete onde Sr. só vai selecionar o seu cargo.
+                    Qualquer dúvida entrar em contato com a central.
+                    Muito Obrigado e tenha um ótimo dia.</p>
             </div>
         </div>
     );
@@ -62,7 +61,7 @@ function Home() {
     const deleteUser = (id) => {
         const db = getFirestore();
         const clienteDocRef = doc(db, 'clientes', id);
-        if (user.uid === '3UbiYQZwJShtQl86KXNu0xyWPnx1') {
+        if (user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2' || user.uid === 'NdY7RuSe2EaXAMGNJECIMUEphZ03'  ||  user.uid === 'XvNPJ9hSGPTq8uXECNGUrxZHEjM2' || user.uid === 'daVCg3nADHaULLRXksRATNTP1Yu2' ||  user.uid === 'VmEp51uZPrU33HxZTZcnmsNHoLj1' || user.uid === 'mO99M5NSBvY4bSwCvHP6kuE9Tos2' || user.uid === 'Po21oAfps9Z5GRZhOZ9C5eVVUpj2' || user.uid === 'gZvV2DySGhdKvQt2FPx142DTaAo2') {
             deleteDoc(clienteDocRef)
                 .then(() => {
                     console.log('Documento excluído com sucesso:', id);
@@ -77,15 +76,15 @@ function Home() {
             console.error('Usuário não tem permissão para excluir clientes.');
             setError('Você não tem permissão para excluir clientes.');
             alert('Você não tem permissão para excluir clientes.')
-            setConfirmacao(false); 
+            setConfirmacao(false);
         }
     };
     useEffect(() => {
         if (error) {
             const timeout = setTimeout(() => {
-                setError(null); 
-                <Navigate to='/app/home'></Navigate> 
-            }, 3000); 
+                setError(null);
+                <Navigate to='/app/home'></Navigate>
+            }, 3000);
             return () => clearTimeout(timeout);
         }
     }, [error]);
@@ -102,44 +101,49 @@ function Home() {
         }
         const fetchData = async () => {
             try {
-              const db = getFirestore();
-              let q;
-              if ((user && user.uid === 'tRcBpcXnM7Od7gXDHD5p8MSYrhl2') || (user && user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2')) {
-                q = query(collection(db, 'clientes'));
-              } else if (user) {
-                q = query(collection(db, 'clientes'), where('userId', '==', user.uid));
-              }
-              if (q) {
-                const querySnapshot = await getDocs(q);      
-                const listaCli = [];     
-                querySnapshot.forEach((doc) => {
-                  if (
-                    doc.data().nome.indexOf(busca) >= 0 ||
-                    doc.data().email.indexOf(busca) >= 0 ||
-                    doc.data().cpf.indexOf(busca) >= 0
-                  ) {
-                    listaCli.push({
-                      id: doc.id,
-                      cpf: doc.data().cpf,
-                      nome: doc.data().nome,
-                      email: doc.data().email,
-                      uf: doc.data().uf,
-                      fone: doc.data().fone,
-                      valor: doc.data().valor,
-                      data: doc.data().data,
+                const db = getFirestore();
+                let q;
+                if ((user && user.uid === 'tRcBpcXnM7Od7gXDHD5p8MSYrhl2') || (user && user.uid === 'TnPrBqZTVQdCmyxYVs8PbQqBemg2') || (user.uid === 'S24vigWuDcT81qAOfAP43AiKU812')) {
+                    q = query(collection(db, 'clientes'));
+                } else if (user) {
+                    q = query(collection(db, 'clientes'), where('userId', '==', user.uid));
+                }
+                if (q) {
+                    const querySnapshot = await getDocs(q);
+                    const listaCli = [];
+                    querySnapshot.forEach((doc) => {
+                        if (
+                            doc.data().nome.indexOf(busca) >= 0 ||
+                            doc.data().email.indexOf(busca) >= 0 ||
+                            doc.data().cpf.indexOf(busca) >= 0 || 
+                            doc.data().operador.indexOf(busca) >= 0 
+                        ) {
+                            listaCli.push({
+                                id: doc.id,
+                                cpf: doc.data().cpf,
+                                nome: doc.data().nome,
+                                email: doc.data().email,
+                                uf: doc.data().uf,
+                                fone: doc.data().fone,
+                                valor: doc.data().valor,
+                                data: doc.data().data,
+                                operador: doc.data().operador,
+                                razao: doc.data().razao,
+                                venc2: doc.data().venc2,
+                                parcelas: doc.data().parcelas,
+                            });
+                        }
                     });
-                  }
-                });
-                setClientes(listaCli);
-                setQuantidadeClientes(listaCli.length);
-                setLoading(false);
-                localStorage.setItem('clientes', JSON.stringify(listaCli));
-              }
+                    setClientes(listaCli);
+                    setQuantidadeClientes(listaCli.length);
+                    setLoading(false);
+                    localStorage.setItem('clientes', JSON.stringify(listaCli));
+                }
             } catch (error) {
-              console.error('Erro ao obter dados:', error);
-              setError(error);
+                console.error('Erro ao obter dados:', error);
+                setError(error);
             }
-          };
+        };
         if (user) {
             fetchData();
         }
@@ -159,6 +163,12 @@ function Home() {
     const handleFecharScriptModal = () => {
         setScriptModalVisible(false);
     };
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            setBusca(texto);
+        }
+    };
+
     return (
         <div>
             <Navbar />
@@ -182,8 +192,20 @@ function Home() {
                         </div>
                         <div className="col-8 pesquisa">
                             <div className="input-group mb-3 ">
-                                <input onChange={(e) => setTexto(e.target.value)} type="text" className="form-control barra" placeholder="Perquisar por nome" aria-describedby="button-addon2" />
-                                <button onClick={(e) => setBusca(texto)} className="btn btn-primary" type="button" id="button-addon2">
+                            <input
+                        onChange={(e) => setTexto(e.target.value)}
+                        onKeyPress={handleKeyPress} // Add this line
+                        type="text"
+                        className="form-control barra"
+                        placeholder="Pesquisar por nome"
+                        aria-describedby="button-addon2"
+                    />
+                    <button
+                        onClick={(e) => setBusca(texto)}
+                        className="btn btn-primary"
+                        type="button"
+                        id="button-addon2"
+                    >
                                     <i className="fa-solid fa-magnifying-glass"></i> Pesquisar
                                 </button>
                             </div>
