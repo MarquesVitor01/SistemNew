@@ -1,16 +1,10 @@
-
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBmjEVqYjXjd9LfRU-xK1uAxos5MrIUaDQ",
-  authDomain: "goo3-c312f.firebaseapp.com",
-  projectId: "goo3-c312f",
-  storageBucket: "goo3-c312f.appspot.com",
-  messagingSenderId: "751556296940",
-  appId: "1:751556296940:web:7f3ef7460fd6c838b265c9",
-  measurementId: "G-71TJEW00Q6"
+  apiKey: "AIzaSyCMqYN_yPnoA0wKit1s7gzRM5FcxiV21eU",
+  authDomain: "banco-sistem.firebaseapp.com",
+  projectId: "banco-sistem",
+  storageBucket: "banco-sistem.appspot.com",
+  messagingSenderId: "326950696263",
+  appId: "1:326950696263:web:40dc9925e295f016f8c862"
 };
-
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
